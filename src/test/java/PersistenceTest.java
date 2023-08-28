@@ -29,7 +29,7 @@ public class PersistenceTest {
         try {
 
             Memo memo = new Memo();
-            memo.setId(1L);
+            memo.setId(2L);
             memo.setUsername("Robbie");
             memo.setContents("1차 캐시 Entity 저장");
 
@@ -125,12 +125,15 @@ public class PersistenceTest {
         EntityTransaction et = em.getTransaction();
 
         et.begin();
-
+//--------------------------------------
         try {
 
             Memo memo = em.find(Memo.class, 2);
 
-            em.remove(memo);
+            memo.setContents("chan23ge");
+            memo.setUsername("cha23nge name");
+
+
 
             et.commit();
 
